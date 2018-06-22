@@ -50,7 +50,9 @@ p.p4gI8
 	tr:first-child
 		text-align center
 		border-bottom table_border
-	tr:last-child
+	tr:not(:first-child)
+		td
+			border-top table_border
 		font-size 12px
 		vertical-align text-top
 		td:first-child
@@ -90,8 +92,10 @@ img
 	height auto
 	margin-right 40px
 	width 181px
+	margin-top -70px
+	transform rotate(42deg)
 @page
-	margin: 20mm 25mm 20mm 45mm;
+	margin: 20mm 5mm 5mm 45mm;
 	size: 21cm 29.7cm;
 
 @media print

@@ -1,86 +1,92 @@
 !!! 5
 html(lang="ru")
-head
-	title= title
-	link(rel="stylesheet", href="style.css")
+	head
+		title= title
+		link(rel="stylesheet", href="style.css")
 
-body
-	.clearfix
-		p.p4gI8.
-			Внимание! Оплата данного счета означает согласие с условиями поставки товара. Уведомление об оплате обязательно, в противном случае не гарантируется наличие товара на складе. Товар отпускается по факту прихода денег на р/с Поставщика, самовывозом, при наличии доверенности и документов удостоверяющих личность.
-	p Образец платежного поручения
-	table.A6P6
-		tbody
-			tr
-				td.AazKSDT Бенифициар:
-				td.KGSzZP ИИК
-				td.A7aG Кбе
-			tr
-				td Товарищество с ограниченной ответственностью "NLS KAZAKHSTAN" БИН: 081040014026
-				td KZ95914398914BC24092
-				td(rowspan=2) 16
-			tr
-				td БИН: 081040014026
-				td
-	table.W65P
-		tbody
-			tr
-				td.AazKSDT Банк Бенефециара:
-				td.A7aG БИК
-				td.KGSzZP Код назначения платежа
-			tr
-				td ДБ АО "Сбербанк" г. Алматы
-				td SABRKZKA
-				td 852
-	h2 Счет на оплату №5296 от 30 апреля 2018 г.
-	hr
-	table.aaE
-		tbody
-			tr
-				td Поставщик:
-				td РНН 600700608929, БИН/ИИН 081040014026, Товарищество с ограниченной ответственностью "NLS KAZAKHSTAN", республика Казахстан, Бостандыкский район, 		Алматы, проспект Аль-Фараби, дом №95, корпус нежилое помещение №115, тел.: (727), 357-21-21.
-			tr
-				td Покупатель:
-				td=customer
-			tr
-				td Договор:
-				td=dogovor
-	table.QctgCAGr
-		tbody
-			tr
-				td №
-				td Код
-				td Наименование
-				td Кол-во
-				td Ед.
-				td Цена
-				td Сумма
-			tr
-				td 1
-				td
-				td=service
-				td=count
-				td усл.
-				td=price
-				td=sum
-	.clearfix
-		table.xvWSj6
+	body
+		.clearfix
+			p.p4gI8.
+				Внимание! Оплата данного счета означает согласие с условиями поставки товара. Уведомление об оплате обязательно, в противном случае не гарантируется наличие товара на складе. Товар отпускается по факту прихода денег на р/с Поставщика, самовывозом, при наличии доверенности и документов удостоверяющих личность.
+		p Образец платежного поручения
+		table.A6P6
 			tbody
 				tr
-					td Итого:
-					td=sum
+					td.AazKSDT Бенифициар:
+					td.KGSzZP ИИК
+					td.A7aG Кбе
 				tr
-					td В том числе НДС:
-					td=nds
+					td Товарищество с ограниченной ответственностью "NLS KAZAKHSTAN" БИН: 081040014026
+					td KZ95914398914BC24092
+					td(rowspan=2) 16
 				tr
-					td Долг:
-					td=credit
+					td БИН: 081040014026
+					td
+		table.W65P
+			tbody
 				tr
-					td Итого к оплате:
-					td=amount
-	p.nP3Jh1 Всего наименований !{count}, на сумму !{amount}&nbsp;!{currency}
-	p.xOuj Всего к оплате: !{amount_str}
-	hr
-	p Исполнитель:
-		u
-	img(src="img/shtamp.jpg")
+					td.AazKSDT Банк Бенефециара:
+					td.A7aG БИК
+					td.KGSzZP Код назначения платежа
+				tr
+					td ДБ АО "Сбербанк" г. Алматы
+					td SABRKZKA
+					td 852
+		h2=header_of_account
+		hr
+		table.aaE
+			tbody
+				tr
+					td Поставщик:
+					td РНН 600700608929, БИН/ИИН 081040014026, Товарищество с ограниченной ответственностью "NLS KAZAKHSTAN", республика Казахстан, Бостандыкский район, 		Алматы, проспект Аль-Фараби, дом №95, корпус нежилое помещение №115, тел.: (727), 357-21-21.
+				tr
+					td Покупатель:
+					td=customer
+				tr
+					td Договор:
+					td=dogovor
+		table.QctgCAGr
+			tbody
+				tr
+					td №
+					td Код
+					td Наименование
+					td Кол-во
+					td Ед.
+					td Цена
+					td Сумма
+				- $i=1
+				- $summ=$total=0
+				-foreach($datas as $data)
+					tr
+						td=$i++
+						td
+						td=$data['service']
+						td=$data['count']
+						td=$data['ed']
+						td=$data['price']
+						td=sprintf('%0.2f',$data['count']*$data['price'])
+						- $summ+=$data['count']*$data['price']
+						- $total+=$data['count']
+		.clearfix
+			table.xvWSj6
+				tbody
+					tr
+						td Итого:
+						td=sprintf('%0.2f',$summ)
+					tr
+						td В том числе НДС:
+						td=sprintf('%0.2f',$summ*$nds)
+					tr
+						td Долг:
+						td=sprintf('%0.2f', credit)
+					tr
+						td Итого к оплате:
+						- $ammount_calc=$summ+($summ*$nds)+$credit
+						td=sprintf('%0.2f',$ammount_calc)
+		p.nP3Jh1 Всего наименований !{$total}, на сумму !{sprintf('%0.2f',$ammount_calc)}&nbsp;!{currency}
+		p.xOuj Всего к оплате: !{amount_str}
+		hr
+		p Исполнитель:
+			u
+		img(src="img/stamp.png")
