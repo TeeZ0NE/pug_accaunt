@@ -1,8 +1,9 @@
 <?php
 
 include 'vendor/autoload.php';
+use NodejsPhpFallback\Stylus;
 $pug = new Pug(array('pretty' => true,));
-
+$stylus = new Stylus('style.styl', true);
 $nds = .2;
 $credit = -12;
 # main data of services begin here

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "957096e760eb1a048af634b996395d9f",
+    "content-hash": "8b5ed9d178a5a201479c5f303a0cc28a",
     "packages": [
         {
             "name": "js-phpize/js-phpize",
@@ -133,6 +133,45 @@
             "time": "2017-10-27T21:27:00+00:00"
         },
         {
+            "name": "kylekatarnls/stylus",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kylekatarnls/Stylus.php.git",
+                "reference": "c679755b8eb1045f988b59b0ea9c4f2f49babdc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kylekatarnls/Stylus.php/zipball/c679755b8eb1045f988b59b0ea9c4f2f49babdc3",
+                "reference": "c679755b8eb1045f988b59b0ea9c4f2f49babdc3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.0 <6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Stylus": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "AustP"
+                },
+                {
+                    "name": "neemzy",
+                    "email": "tom.panier@beseen.fr"
+                }
+            ],
+            "description": "Stylus preprocessor for PHP (see https://github.com/AustP/Stylus.php, it's an exact fork except the minimum stability)",
+            "time": "2017-09-07T13:54:54+00:00"
+        },
+        {
             "name": "nodejs-php-fallback/nodejs-php-fallback",
             "version": "1.4.1",
             "source": {
@@ -176,6 +215,48 @@
             ],
             "description": "Allow you to call node.js module or scripts throught PHP and call a fallback function if node.js is not available",
             "time": "2018-04-05T14:25:31+00:00"
+        },
+        {
+            "name": "nodejs-php-fallback/stylus",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kylekatarnls/stylus.git",
+                "reference": "acee03a78b91c2ecca9f9d77f74c914052c36098"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kylekatarnls/stylus/zipball/acee03a78b91c2ecca9f9d77f74c914052c36098",
+                "reference": "acee03a78b91c2ecca9f9d77f74c914052c36098",
+                "shasum": ""
+            },
+            "require": {
+                "kylekatarnls/stylus": "^1.0",
+                "nodejs-php-fallback/nodejs-php-fallback": "^1.2"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "composer/composer": "^1.2",
+                "phpunit/phpunit": ">=4.8 <6.0"
+            },
+            "type": "library",
+            "extra": {
+                "npm": "stylus"
+            },
+            "autoload": {
+                "psr-0": {
+                    "NodejsPhpFallback\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kyle",
+                    "email": "kylekatarnls@gmail.com"
+                }
+            ],
+            "description": "PHP wrapper to execute stylus node package or fallback to a PHP alternative",
+            "time": "2017-10-16T15:59:56+00:00"
         },
         {
             "name": "phug/ast",
