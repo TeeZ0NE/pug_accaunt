@@ -2,10 +2,7 @@
 
 include 'vendor/autoload.php';
 use NodejsPhpFallback\Stylus;
-<<<<<<< HEAD
-=======
 
->>>>>>> dev
 $pug = new Pug(array('pretty' => true,));
 $stylus = new Stylus('style.styl', true);
 $nds = .2;
